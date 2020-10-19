@@ -25,12 +25,11 @@ pipeline {
             steps{
                 sh 'mvn clean verify -Dsurefire.skip=true';
                 junit '**/target/failsafe-reports/TEST-*.xml'
-                 archive 'target/*.jar'
+                archive 'target/*.jar'
             }
             
         }
         stage('Publish'){
-            steps{
                 def server = Artifactory.server 'Default Artifactory Server'
                 def uploadSpec = """{
                      "files": [
@@ -41,6 +40,7 @@ pipeline {
                         }
                     ]
                 }"""
+            steps{
                 server.upload(uploadSpec)
             }
         }
