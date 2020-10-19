@@ -1,6 +1,6 @@
 node {
     checkout scm
-    docker.image('jenkins-node:beta').inside {
+    docker.image('jenkins-node:beta').inside("""--entrypoint=''""") {
         //build de app and execute unit test
         stage('Build & Unit test'){
             //this option -DskipITs=true skip integration tests
