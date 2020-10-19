@@ -6,7 +6,7 @@ node {
             //this option -DskipITs=true skip integration tests
             sh 'mvn clean verify -DskipITs=true';
             junit '**/target/surefire-reports/TEST-*.xml'
-            archive 'target/*.jar'
+            archiveArtifacts artifacts: 'target/*.jar'
             
         }
         // integration tests
@@ -14,7 +14,7 @@ node {
             //this option -Dsurefire.skip=true skip unit tests
             sh 'mvn clean verify -Dsurefire.skip=true';
             junit '**/target/failsafe-reports/TEST-*.xml'
-            archive 'target/*.jar'
+            archiveArtifacts artifacts: 'target/*.jar'
             
         }
         stage('Publish'){
