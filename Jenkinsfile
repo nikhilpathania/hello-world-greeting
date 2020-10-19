@@ -23,7 +23,7 @@ node {
                     "files": [
                     {
                         "pattern": "target/hello-0.0.1.war",
-                        "target": "helloworld-greeting-project/${BUILD_NUMBER}/",
+                        "target": "example-project/${BUILD_NUMBER}/",
                         "props": "Integration-Tested=Yes;Performance-Tested=No"
                     }
                 ]
