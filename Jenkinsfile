@@ -28,7 +28,7 @@ node {
                     }
                 ]
             }"""
-            server.upload(uploadSpec)
+            server.upload spec: uploadSpec, failNoOp: true
         }
     }
 }
